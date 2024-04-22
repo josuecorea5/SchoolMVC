@@ -1,0 +1,48 @@
+﻿@using School.Domain.Enums
+@model EditEnrollmentViewModel
+
+<div class="card shadow border-0 mt-4">
+	<div class="card-header bg-light-subtle bg-gradient ml-0 py-3">
+		<div class="row">
+			<div class="col-12 text-center">
+				<h3 class="text-primary">Update Enrollment</h3>
+			</div>
+		</div>
+	</div>
+	<div class="card-body p-4">
+		<form method="post" class="row">
+			<div class="border p-3">
+				<input asp-for="Id" hidden />
+				<div class="row mb-4">
+					<div class="form-floating py-2 col-12">
+						<select asp-for="GradeId" asp-items="@Model.GradeLists" class="form-select border-0 shadow">
+							<option disabled selected>--Select Grade--</option>
+						</select>
+						<label class="ms-1">Grade</label>
+						<span asp-validation-for="GradeId" class="text-danger"></span>
+					</div>
+					<div class="form-floating py-2 col-12">
+						<select asp-for="EnrollmentStatus" asp-items="Html.GetEnumSelectList(typeof(EnrollmentStatus))" class="form-select border-0 shadow">
+						</select>
+						<label class="ms-1">Enrollment status</label>
+						<span asp-validation-for="EnrollmentStatus" class="text-danger"></span>
+					</div>
+				</div>
+				<div class="row pt-2">
+					<div class="col-6 col-md-3">
+						<a asp-controller="Enrollment" asp-action="Index" class="btn btn-secondary bg-transparent text-primary form-control">Back to list</a>
+					</div>
+					<div class="col-6 col-md-3">
+						<button type="submit" class="btn btn-primary form-control">Update</button>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+
+@section Scripts {
+	@{
+		<partial name="_ValidationScriptsPartial" />
+	}
+}

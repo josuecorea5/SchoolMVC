@@ -1,0 +1,35 @@
+﻿@model List<Teacher>
+
+<div class="card shadow border-0 mt-4">
+	<div class="card-header bg-secondary bg-gradient ml-0 py-3">
+		<div class="row">
+			<div class="col-12 text-center">
+				<h2 class="text-primary">Teacher Lists</h2>
+			</div>
+		</div>
+	</div>
+	<div class="card-body p-4">
+		<div class="row pb-3">
+			<div class="col-12 text-end">
+				<a asp-controller="Teacher" asp-action="Create" class="btn btn-primary">
+					<i class="bi bi-plus-circle"></i>  CREATE NEW TEACHER
+				</a>
+			</div>
+		</div>
+		<table id="example" class="table table-bordered table-striped">
+			<thead>
+				<tr class="text-center">
+					<th>ID</th>
+					<th>NAME</th>
+					<th>TITLE</th>
+					<th>EMAIL</th>
+					<th></th>
+				</tr>
+			</thead>
+		</table>
+	</div>
+</div>
+
+@section Scripts {
+	<script src="~/js/teacher.js"></script>
+}

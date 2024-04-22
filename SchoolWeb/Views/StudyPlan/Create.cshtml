@@ -1,0 +1,76 @@
+﻿@model CreateStudyPlanViewModel
+
+<div class="card shadow border-0 mt-4">
+	<div class="card-header bg-light-subtle bg-gradient ml-0 py-3">
+		<div class="row">
+			<div class="col-12 text-center">
+				<h3 class="text-primary">Create Study Plan</h3>
+			</div>
+		</div>
+	</div>
+	<div class="card-body p-4">
+		<form method="post" class="row">
+			<div class="border p-3">
+				<div class="form-floating py-2 col-12 mb-3">
+					<input type="hidden" id="subjectsSelectedIds" asp-for="SubjectIds" />
+					<select asp-for="GradeId" asp-items="@Model.Grades" class="form-select border-0 shadow">
+						<option disabled selected>--Select grade--</option>
+					</select>
+					<label class="ms-1">Study plan grade</label>
+					<span asp-validation-for="GradeId" class="text-danger"></span>
+				</div>
+				<h4 class="text-center">Available Subjects</h4>
+				<div class="form-floating py-2 col-12">
+					<ul class="list-group">
+						@foreach (var subject in Model.ListSubject)
+						{
+							<li class="list-group-item d-flex justify-content-between align-items-center p-3">
+								<p class="mb-0">@subject.Name</p>
+								<button class="btn btn-outline-primary btn-add" data-id="@subject.Id">Add</button>
+							</li>
+						}
+						<span asp-validation-for="SubjectIds" class="text-danger"></span>
+
+					</ul>
+				</div>
+				<div class="row pt-2">
+					<div class="col-6 col-md-3">
+						<a asp-controller="StudyPlan" asp-action="Index" class="btn btn-secondary bg-transparent text-primary form-control">Back to list</a>
+					</div>
+					<div class="col-6 col-md-3">
+						<button type="submit" class="btn btn-primary form-control">Create</button>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+
+@section Scripts {
+	@{
+		<partial name="_ValidationScriptsPartial" />
+	}
+
+	<script type="text/javascript">
+		$(document).ready(function () {
+			console.log("This is Jquery baby")
+			let selectedIds = [];
+			$(".btn-add").each(function () {
+				$(this).on("click", function (event) {
+					event.preventDefault();
+					let index = selectedIds.indexOf($(this).data("id"));
+					if (index === -1) {
+						selectedIds.push($(this).data("id"));
+						$(this).addClass("selected");
+						$(this).text("Remove")
+					} else {
+						selectedIds.splice(index, 1);
+						$(this).removeClass("selected");
+						$(this).text("Add")
+					}
+					$("#subjectsSelectedIds").val(selectedIds.join(","));
+				})
+			})
+		})
+	</script>
+}

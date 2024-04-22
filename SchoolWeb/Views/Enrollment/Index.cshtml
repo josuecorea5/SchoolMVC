@@ -1,0 +1,35 @@
+﻿@model List<Enrollment>
+
+<div class="card shadow border-0 mt-4">
+	<div class="card-header bg-secondary bg-gradient ml-0 py-3">
+		<div class="row">
+			<div class="col-12 text-center">
+				<h2 class="text-primary">Enrollment Lists</h2>
+			</div>
+		</div>
+	</div>
+	<div class="card-body p-4">
+		<div class="row pb-3">
+			<div class="col-12 text-end">
+				<a asp-controller="Enrollment" asp-action="Create" class="btn btn-primary">
+					<i class="bi bi-plus-circle"></i>  CREATE NEW ENROLLMENT
+				</a>
+			</div>
+		</div>
+		<table id="example" class="table table-bordered table-striped">
+			<thead>
+				<tr class="text-center">
+					<th>ID</th>
+					<th>STUDENT</th>
+					<th>GRADE</th>
+					<th>STATUS</th>
+					<th></th>
+				</tr>
+			</thead>
+		</table>
+	</div>
+</div>
+
+@section Scripts {
+	<script src="~/js/enrollment.js"></script>
+}

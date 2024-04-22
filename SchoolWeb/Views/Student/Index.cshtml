@@ -1,0 +1,37 @@
+﻿@model List<Student>
+
+<div class="card shadow border-0 mt-4">
+	<div class="card-header bg-secondary bg-gradient ml-0 py-3">
+		<div class="row">
+			<div class="col-12 text-center">
+				<h2 class="text-primary">Student Lists</h2>
+			</div>
+		</div>
+	</div>
+	<div class="card-body p-4">
+		<div class="row pb-3">
+			<div class="col-12 text-end">
+				<a asp-controller="Student" asp-action="Create" class="btn btn-primary">
+					<i class="bi bi-plus-circle"></i>  CREATE NEW STUDENT
+				</a>
+			</div>
+		</div>
+		<table id="example" class="table table-bordered table-striped">
+			<thead>
+				<tr class="text-center">
+					<th>CODE</th>
+					<th>NAME</th>
+					<th>AGE</th>
+					<th>DATE OF BIRTH</th>
+					<th>EMAIL</th>
+					<th>PHONE</th>
+					<th></th>
+				</tr>
+			</thead>
+		</table>
+	</div>
+</div>
+
+@section Scripts{
+	<script src="~/js/student.js"></script>
+}

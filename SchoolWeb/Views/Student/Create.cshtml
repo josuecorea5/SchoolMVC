@@ -1,0 +1,61 @@
+﻿@model CreateStudentViewModel
+
+<div class="card shadow border-0 mt-4">
+	<div class="card-header bg-light-subtle bg-gradient ml-0 py-3">
+		<div class="row">
+			<div class="col-12 text-center">
+				<h3 class="text-primary">Create Student</h3>
+			</div>
+		</div>
+	</div>
+	<div class="card-body p-4">
+		<form method="post" class="row" enctype="multipart/form-data">
+			<div class="border p-3">
+				<div class="form-floating py-2 col-12">
+					<input asp-for="Name" class="form-control border-0 shadow" />
+					<label class="ms-1">Student name</label>
+					<span asp-validation-for="Name" class="text-danger"></span>
+				</div>
+				<div class="form-floating py-2 col-12">
+					<input asp-for="LastName" class="form-control border-0 shadow" />
+					<label class="ms-1">Student Lastname</label>
+					<span asp-validation-for="LastName" class="text-danger"></span>
+				</div>
+				<div class="form-floating py-2 col-12">
+					<input asp-for="DateOfBirth" type="date" class="form-control border-0 shadow" />
+					<label class="ms-1">Student Date of birth</label>
+					<span asp-validation-for="DateOfBirth" class="text-danger"></span>
+				</div>
+				<div class="form-floating py-2 col-12">
+					<input asp-for="Email" class="form-control border-0 shadow" />
+					<label class="ms-1">Student Email</label>
+					<span asp-validation-for="Email" class="text-danger"></span>
+				</div>
+				<div class="form-floating py-2 col-12">
+					<input asp-for="Phone" class="form-control border-0 shadow" placeholder="Example: 7790-2122" />
+					<label class="ms-1">Student phone</label>
+					<span asp-validation-for="Phone" class="text-danger"></span>
+				</div>
+				<div class="form-floating py-2 col-12">
+					<input asp-for="Image" name="Image" type="file" class="form-control border-0 shadow" />
+					<label class="ms-1">Student Image</label>
+					<span asp-validation-for="Image" class="text-danger"></span>
+				</div>
+				<div class="row pt-2">
+					<div class="col-6 col-md-3">
+						<a asp-controller="Student" asp-action="Index" class="btn btn-secondary bg-transparent text-primary form-control">Back to list</a>
+					</div>
+					<div class="col-6 col-md-3">
+						<button type="submit" class="btn btn-primary form-control">Create</button>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+
+@section Scripts {
+	@{
+		<partial name="_ValidationScriptsPartial" />
+	}
+}

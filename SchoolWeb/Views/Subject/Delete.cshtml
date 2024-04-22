@@ -1,0 +1,49 @@
+﻿@model Subject
+
+<div class="card shadow border-0 mt-4">
+	<div class="card-header bg-light-subtle bg-gradient ml-0 py-3">
+		<div class="row">
+			<div class="col-12 text-center">
+				<h3 class="text-primary">Delete Subject</h3>
+			</div>
+		</div>
+	</div>
+	<div class="card-body p-4">
+		<form method="post" class="row">
+			<div class="border p-3">
+				<input asp-for="Id" hidden />
+				<div class="form-floating py-2 col-12">
+					<input disabled asp-for="Name" class="form-control border-0 shadow" />
+					<label class="ms-1">Name</label>
+					<span asp-validation-for="Name" class="text-danger"></span>
+				</div>
+				<div class="form-floating py-2 col-12">
+					<input disabled asp-for="Description" class="form-control border-0 shadow" />
+					<label class="ms-1">Description</label>
+					<span asp-validation-for="Description" class="text-danger"></span>
+				</div>
+				<div class="form-floating py-2 col-12">
+					<select disabled asp-for="TeacherId" class="form-select border-0 shadow">
+						<option disabled selected>@Model.Teacher.Name @Model.Teacher.LastName</option>
+					</select>
+					<label class="ms-1">Teacher</label>
+					<span asp-validation-for="TeacherId" class="text-danger"></span>
+				</div>
+				<div class="row pt-2">
+					<div class="col-6 col-md-3">
+						<a asp-controller="Subject" asp-action="Index" class="btn btn-secondary bg-transparent text-primary form-control">Back to list</a>
+					</div>
+					<div class="col-6 col-md-3">
+						<button type="submit" class="btn btn-primary form-control">Delete</button>
+					</div>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+
+@section Scripts {
+	@{
+		<partial name="_ValidationScriptsPartial" />
+	}
+}
