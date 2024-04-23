@@ -26,22 +26,29 @@
                             <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" asp-controller="Grade" asp-action="Index">Grades</a>
-                        </li>
-                        <li class="nav-item">
                             <a class="nav-link" asp-controller="Student" asp-action="Index">Students</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-controller="Teacher" asp-action="Index">Teachers</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-controller="Subject" asp-action="Index">Subjects</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" asp-controller="Enrollment" asp-action="Index">Enrollments</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" asp-controller="StudyPlan" asp-action="Index">Study Plans</a>
+                        </li>
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle  text-white" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                More options
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>
+                                    <a class="dropdown-item" asp-controller="Grade" asp-action="Index">Grades</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" asp-controller="Subject" asp-action="Index">Subjects</a>
+                                </li>
+                                <li>
+                                    <a class="dropdown-item" asp-controller="Teacher" asp-action="Index">Teachers</a>
+                                </li>
+                            </ul>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>

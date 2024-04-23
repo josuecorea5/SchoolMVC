@@ -20,3 +20,8 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.border-left-primary {
+    border: none;
+    border-left: .25rem solid #2c3e50;
+}
