@@ -1,11 +1,14 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using School.Domain.Entities;
 using School.Infrastructure.Repositories;
 using School.Infrastructure.Services;
+using School.Utility;
 using SchoolWeb.ViewModels;
 
 namespace SchoolWeb.Controllers
 {
+    [Authorize(Roles = StaticDetails.ROLE_ADMIN)]
     public class TeacherController : Controller
     {
         private readonly IUnitOfWork _unitOfWork;

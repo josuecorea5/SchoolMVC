@@ -83,9 +83,7 @@
 			})
 
 			$(".btn-remove").each(function () {
-				console.log($(".btn-remove").length);
 				currentIds.push($(this).data("id"));
-				console.log(currentIds)
 			})
 
 			$(document).on("click", ".btn-add", function (event) {
@@ -93,7 +91,6 @@
 				let btnId = $(this);
 				let id = btnId.data("id")
 				let studyPlanId = $("#studyPlanId").val();
-				console.log("VALUES XD", id, studyPlanId)
 				let element = btnId.closest("li");
 
 				$.ajax({
@@ -104,7 +101,6 @@
 						SubjectId: id
 					},
 					success: function (data) {
-						console.log(data)
 						if (data.success) {
 							Swal.fire({
 								title: "Done!",
@@ -168,7 +164,6 @@
 								icon: "success"
 							});
 							element.remove();
-							console.log(element);
 							currentIds.splice(index, 1)
 							$("#subjectsSelectedIds").val(currentIds.join(","));
 							let listSubjectAvailables = $("#subject-availables");
